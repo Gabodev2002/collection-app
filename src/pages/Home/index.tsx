@@ -28,13 +28,14 @@ export const Home = () => {
             }, [])
 
     return(
-        <main className='w-full h-96 bg-[#ffffff] pt-10 mb-20 '> 
-            { !loading && <h1 className='text-center text-[40px] text-[#123026] font-[400] pt-10'>These are our collections</h1>}
-            { loading && <h1 className='text-center text-[40px] text-[#123026] font-[400] pt-10'>Loading...</h1>}
-            <div className='flex justify-center gap-5'>
+        <main className='w-full h-auto bg-[#ffffff] pt-10 '> 
+            { !loading && <h1 className='text-center text-[40px] text-[#123026] font-[400] pt-10 pb-20'>These are our collections</h1>}
+            { loading && <h1 className='text-center text-[40px] text-[#123026] font-[400] pt-10 pb-20'>Loading...</h1>}
+            <div className='px-4 grid grid-cols-1 md:grid-cols-2 md:max-w-[820px] lg:max-w-[1350px] lg:grid-cols-4 justify-items-center gap-5 md:px-8 mb-20  m-auto'>
                 {photos?.map((element) => (
-                  <article className='w-80 h-80 cursor-pointer' key={element.id}>
-                      <img className='w-full h-full' src={element.cover_photo.urls.small} alt="photo" />
+                  <article className='relative overflow-hidden w-full max-w-[350px] h-64 cursor-pointer img-container rounded-sm' key={element.id}>
+                      <img className='w-full h-full rounded-sm transition hover:scale-110 duration-500 ' src={element.cover_photo.urls.small} alt="photo" />
+                      <p className="z-10 w-36 h-6 text-center absolute bottom-2 left-2 font-light text-white bg-[#ff0000] block py-0.5 rounded-lg text-[12px]">{element.title}</p>
                   </article>
                 ))}
             </div>
