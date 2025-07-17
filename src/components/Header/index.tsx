@@ -1,7 +1,7 @@
 export const Header = () => {
     return(
         <header className='w-full relative'>
-            <img className='w-full h-[700px] brightness-50' src={'https://images.unsplash.com/photo-1751195119402-66f0e46d008e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NzMyODF8MHwxfGFsbHx8fHx8fHx8fDE3NTI2ODQzNTJ8&ixlib=rb-4.1.0&q=85'} alt='People stand under umbrellas on a rainy street.'/>
+            <img className='w-full h-[800px] brightness-50' src={'https://images.unsplash.com/photo-1751195119402-66f0e46d008e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NzMyODF8MHwxfGFsbHx8fHx8fHx8fDE3NTI2ODQzNTJ8&ixlib=rb-4.1.0&q=85'} alt='People stand under umbrellas on a rainy street.'/>
 
             <div className='w-full flex flex-col absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-5'>
                 <h1 className=' text-[#ffffff] text-6xl font-bold text-shadow-lg'>YOUR FAITHFUL COLLECTION</h1>
