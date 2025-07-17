@@ -35,7 +35,7 @@ export const Home = () => {
                 {photos?.map((element) => (
                   <article className='relative overflow-hidden w-full max-w-[350px] h-64 cursor-pointer img-container rounded-sm' key={element.id}>
                       <img className='w-full h-full rounded-sm transition hover:scale-110 duration-500 ' src={element.cover_photo.urls.small} alt="photo" />
-                      <p className="z-10 w-36 h-6 text-center absolute bottom-2 left-2 font-light text-white bg-[#ff0000] block py-0.5 rounded-lg text-[12px]">{element.title}</p>
+                      <p className="w-36 h-6 text-center absolute bottom-2 left-2 font-light text-white bg-[#ff0000] block py-0.5 rounded-lg text-[12px]">{element.title}</p>
                   </article>
                 ))}
             </div>

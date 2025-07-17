@@ -3,3 +3,8 @@
 :root {
     font-family: "Rubik", sans-serif;
 }
+
+.list-container > li:hover {
+    color: #ff0000;
+    cursor: pointer;
+}
