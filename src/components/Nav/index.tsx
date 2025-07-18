@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { MdOutlineMenu } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
+import { Navigate } from "../Navigate";
+import { Aside } from "../Aside";
 
 
 export const Nav = () => {
@@ -67,26 +69,36 @@ export const Nav = () => {
 
                 <span className='text-3xl text-[#123026] font-extrabold'>LOGO</span>
 
-                { shouldRenderAside && (<aside className={`
+                {/* { shouldRenderAside && (<aside className={`
                                 flex flex-col absolute md:hidden bg-white z-10 top-25 h-screen w-[80%] -left-4
                                 transform transition-transform duration-500 ease-in-out
                                 ${isShowMenu ? 'translate-x-0' : '-translate-x-full'}
                             `}>
 
                     <ul className='pl-10 pt-5 flex flex-col gap-5 text-[#425e57] text-[18px] list-container'>
-                        <li>Home</li> 
-                        <li>Collections</li>
-                        <li>Random Photos</li>
-                        <li>Others</li>
+
+                        <Navigate text="Home" path="/"/>
+
+                        <Navigate text="Collections" path="/collections" />
+
+                        <Navigate text="Random Photos" path="/random-photos"/>
+
+                        <Navigate text="Others" path="/others"/>
+
                     </ul>
 
-                </aside>)}
+                </aside>)} */}
+
+                { shouldRenderAside && (<Aside isShowMenu={isShowMenu} />)}
 
                <ul className='hidden md:flex gap-5 text-[#425e57] text-[14px] list-container'>
-                    <li>Home</li> 
-                    <li>Collections</li>
-                    <li>Random Photos</li>
-                    <li>Others</li>
+                        <Navigate text="Home" path="/"/>
+
+                        <Navigate text="Collections" path="/collections" />
+
+                        <Navigate text="Random Photos" path="/random-photos"/>
+
+                        <Navigate text="Others" path="/others"/>
                </ul>
 
 

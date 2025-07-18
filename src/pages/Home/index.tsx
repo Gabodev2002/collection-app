@@ -4,7 +4,7 @@ import type { Collections } from "../../utils/data"
 
 export const Home = () => {
 
-    const [ photos, setPhotos ] = useState<Collections[]>([])
+    const [ collections, setCollections ] = useState<Collections[]>([])
     const [ loading, setLoading ] = useState(false)
 
             useEffect(() => {
@@ -16,7 +16,7 @@ export const Home = () => {
                     throw new Error()
                     }
                     const data = await res.json()
-                    setPhotos(data.slice(0,4))
+                    setCollections(data.slice(0,4))
 
                 } catch (err) {
                     console.error('Something went wrong', err)
@@ -32,10 +32,10 @@ export const Home = () => {
             { !loading && <h1 className='text-center text-[40px] text-[#123026] font-[400] pt-10 pb-20'>These are our collections</h1>}
             { loading && <h1 className='text-center text-[40px] text-[#123026] font-[400] pt-10 pb-20'>Loading...</h1>}
             <div className='px-4 grid grid-cols-1 md:grid-cols-2 md:max-w-[820px] lg:max-w-[1350px] lg:grid-cols-4 justify-items-center gap-5 md:px-8 mb-20  m-auto'>
-                {photos?.map((element) => (
-                  <article className='relative overflow-hidden w-full max-w-[350px] h-64 cursor-pointer img-container rounded-sm' key={element.id}>
-                      <img className='w-full h-full rounded-sm transition hover:scale-110 duration-500 ' src={element.cover_photo.urls.small} alt="photo" />
-                      <p className="w-36 h-6 text-center absolute bottom-2 left-2 font-light text-white bg-[#ff0000] block py-0.5 rounded-lg text-[12px]">{element.title}</p>
+                {collections?.map((collection) => (
+                  <article className='relative overflow-hidden w-full max-w-[350px] h-64 cursor-pointer img-container rounded-sm' key={collection.id}>
+                      <img className='w-full h-full rounded-sm transition hover:scale-110 duration-500 ' src={collection.cover_photo.urls.small} alt="photo" />
+                      <p className="w-36 h-6 text-center absolute bottom-2 left-2 font-light text-white bg-[#ff0000] block py-0.5 rounded-lg text-[12px]">{collection.title}</p>
                   </article>
                 ))}
             </div>

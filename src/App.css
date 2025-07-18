@@ -4,7 +4,15 @@
     font-family: "Rubik", sans-serif;
 }
 
+.list-container > li {
+    border-bottom: 1px solid transparent;
+}
 .list-container > li:hover {
     color: #ff0000;
     cursor: pointer;
+}
+
+.active {
+    color: #ff0000;
+    border-bottom: 1px solid #ff0000;
 }
