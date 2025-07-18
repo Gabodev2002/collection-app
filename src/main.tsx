@@ -9,7 +9,8 @@ import App from './App.tsx'
 
   const routers = createBrowserRouter([
     { path: '/', element: <App/> },
-    { path: '/collections', element: <Collections /> } 
+    { path: '/collections', element: <Collections /> }, 
+    { path: '/collections/:name/:id', element: <App /> }, 
   ])
 
 

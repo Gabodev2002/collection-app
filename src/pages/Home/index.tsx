@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react"
-import type { Collections } from "../../utils/data"
+import type { CollectionsData } from "../../utils/data"
 
 
 export const Home = () => {
 
-    const [ collections, setCollections ] = useState<Collections[]>([])
+    const [ collections, setCollections ] = useState<CollectionsData[]>([])
     const [ loading, setLoading ] = useState(false)
 
             useEffect(() => {

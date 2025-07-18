@@ -123,7 +123,7 @@ export interface Urls {
     small_s3: string;
 }
 
-export interface Collections {
+export interface CollectionsData {
     id:                             string;
     slug:                           string;
     title:                          string;
