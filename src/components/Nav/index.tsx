@@ -24,6 +24,16 @@ export const Nav = () => {
         }
     };
 
+        useEffect(() => {
+            if(isShowMenu) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = 'initial'
+        }
+        }, [isShowMenu])
+
+
+
     
         useEffect(() => {
 
