@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { Layout } from "../../components/Layout"
 import { Wrapper } from "../../components/ui/wrapper"
-import { useParams, NavLink } from "react-router"
+import { useParams } from "react-router"
 import type { CollectionsData } from "../../utils/data"
 
 
@@ -11,19 +11,20 @@ export const GenericCollection = () => {
     const [ images, setImages ] = useState<CollectionsData[]>()
     const [ imgLoaded, setImgLoaded ] = useState(false)
 
-    const { id } = useParams()
+    const id = useParams()
     console.log(id)
 
     useEffect(() => {
         setLoading(true)
         const fetchData = async () => {
             try{
-                const res = await fetch(`https://api.unsplash.com/collections?${id}/photos&client_id=Q2RreKXKTluL3jgHrsWvM97jT_iu8kpJmxkY-u8h_T0`)
+                const res = await fetch(`https://api.unsplash.com/collections/xFO4kd86whI/photos?client_id=Q2RreKXKTluL3jgHrsWvM97jT_iu8kpJmxkY-u8h_T0`);
                 if(!res.ok) {
                     throw new Error()
                 }
                 const data = await res.json()
                 setImages(data)
+                console.log(data)
             } catch {
                 console.error('Error fetching')
             } finally {
@@ -38,7 +39,8 @@ export const GenericCollection = () => {
     return(
         <Layout>
             <section className="w-full pt-40 bg-[#ffffff] md:max-w-[820px] lg:max-w-[1350px] m-auto">
-                <h1 className="text-center">Generic Colection</h1>
+                { loading && <h1 className="text-center">Loading... </h1>}
+               { !loading && <h1 className="text-center">Generic Colection</h1>}
                 { <Wrapper>
                         { images?.map((image) => (
                             <article className={`${imgLoaded ? 'opacity-100 transition ease-in duration-500' : 'opacity-0'} relative overflow-hidden w-full max-w-[350px] h-60 cursor-pointer img-container rounded-sm`} key={image.id}>

@@ -30,11 +30,12 @@ export const Collections = () => {
                             setHasMore(true)
                         }
                         setCollections(data)
+                        
     
                     } catch (err) {
                         console.error('Something went wrong', err)
                     } finally {
-                        setLoading(false)
+                        setLoading(false)  
                     }
                     }
                     setTimeout(() => {
