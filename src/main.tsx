@@ -5,12 +5,13 @@ import { Collections } from './pages/Collections/index.tsx';
 // import { Layout } from './components/Layout/index.tsx';
 import './index.css'
 import App from './App.tsx'
+import { GenericCollection } from './pages/GenericCollection/index.tsx';
 
 
   const routers = createBrowserRouter([
     { path: '/', element: <App/> },
     { path: '/collections', element: <Collections /> }, 
-    { path: '/collections/:name/:id', element: <App /> }, 
+    { path: '/collections/:id', element: <GenericCollection /> }, 
   ])
 
 
