@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { NavLink, useParams } from "react-router"
+import { useParams } from "react-router"
 import { Layout } from "../../components/Layout"
 import { Wrapper } from "../../components/ui/wrapper"
 import type { RandomPhotosData } from "../../utils/randomData"
@@ -11,7 +11,7 @@ export const RandomPhoto = () => {
     const [ loading, setLoading ] = useState(false)
     const [ imgLoaded, setImgLoaded ] = useState(false)
     const  id  = useParams()
-    console.log(id)
+
 
     useEffect(() => {
         setLoading(true)

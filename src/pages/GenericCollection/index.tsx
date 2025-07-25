@@ -10,9 +10,7 @@ export const GenericCollection = () => {
     const [ loading, setLoading ] = useState(false)
     const [ images, setImages ] = useState<CollectionsData[]>()
     const [ imgLoaded, setImgLoaded ] = useState(false)
-
     const id = useParams()
-    console.log(id)
 
     useEffect(() => {
         setLoading(true)
