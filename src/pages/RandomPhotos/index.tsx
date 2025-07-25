@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { NavLink } from "react-router"
 import { Layout } from "../../components/Layout"
 import { Wrapper } from "../../components/ui/wrapper"
 import { Spinner } from "../../components/ui/Spinner"
@@ -44,9 +43,9 @@ export const RandomPhotos = () => {
                 {randomPhotos?.map((photo) => (
 
                     <article className={`${imgLoaded ? 'opacity-100 transition ease-in duration-500' : 'opacity-0'} relative overflow-hidden w-full max-w-[350px] h-60 cursor-pointer img-container rounded-sm`} key={photo.id}>
-                            <NavLink to={`/random-photos/${photo.id}}`}>
+                            <a href={`https://unsplash.com/${photo.id}`} >
                                 <img className={`w-full h-full rounded-sm transition hover:scale-110 duration-500`} src={photo.urls.small} alt="photo" onLoad={() => setImgLoaded(true)}/>
-                            </NavLink>
+                            </a>
                             <p className="w-36 h-6 text-center absolute bottom-2 left-2 font-light text-white bg-[#ff0000] block py-0.5 rounded-lg text-[12px]">{photo.user.first_name}</p>
                         </article>
 
