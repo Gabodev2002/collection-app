@@ -39,9 +39,7 @@ export interface AlternativeSlugs {
     id: string;
 }
 
-export enum AssetType {
-    Photo = "photo",
-}
+export type AssetType = "photo";
 
 export interface Exif {
     make:          null | string;
