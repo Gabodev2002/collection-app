@@ -5,6 +5,7 @@ import { Spinner } from "../../components/ui/Spinner";
 import type { CollectionsData } from "../../utils/data"
 import { NavLink } from "react-router";
 import { Wrapper } from "../../components/ui/wrapper";
+import { API_KEY } from "../../utils/api_key";
 
 export const Collections = () => {
 
@@ -19,7 +20,7 @@ export const Collections = () => {
                     setImgLoaded(false)
                     const fetchData = async () =>  {
                     try {
-                        const res = await fetch(`https://api.unsplash.com/collections?page=${page}&per_page=8&client_id=Q2RreKXKTluL3jgHrsWvM97jT_iu8kpJmxkY-u8h_T0`)
+                        const res = await fetch(`https://api.unsplash.com/collections?page=${page}&per_page=8&client_id=${API_KEY}`)
                         if(!res.ok) {
                         throw new Error()
                         }

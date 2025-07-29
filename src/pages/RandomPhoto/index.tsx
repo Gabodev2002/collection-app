@@ -4,6 +4,7 @@ import { Layout } from "../../components/Layout"
 import { Wrapper } from "../../components/ui/wrapper"
 import type { RandomPhotosData } from "../../utils/randomData"
 import { Spinner } from "../../components/ui/Spinner"
+import { API_KEY } from "../../utils/api_key"
 
 export const RandomPhoto = () => {
 
@@ -17,7 +18,7 @@ export const RandomPhoto = () => {
         setLoading(true)
         const fetchData = async () => {
             try {
-                const res = await fetch(`https://api.unsplash.com/photos/${id}/?client_id=Q2RreKXKTluL3jgHrsWvM97jT_iu8kpJmxkY-u8h_T0`)
+                const res = await fetch(`https://api.unsplash.com/photos/${id}/?client_id=${API_KEY}`)
                 if(!res.ok) {
                     throw new Error()
                 }

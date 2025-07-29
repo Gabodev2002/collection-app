@@ -1,20 +1,21 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Layout } from "../../components/Layout"
 import { Wrapper } from "../../components/ui/wrapper"
 import { Spinner } from "../../components/ui/Spinner"
 import type { RandomPhotosData } from "../../utils/randomData"
+import { API_KEY } from "../../utils/api_key"
 
 export const RandomPhotos = () => {
 
     const [ randomPhotos, setRandomPhotos ] = useState<RandomPhotosData[]>()
     const [ imgLoaded, setImgLoaded ] = useState(false)
-    const [ loading, setLoading ] = useState(false)
+    const [ loading, setLoading ] = useState(true)
 
-        useEffect(() => {
-            setLoading(true)
+        
             const fetchData = async () => {
+                setLoading(true)
                 try {
-                    const res = await fetch(`https://api.unsplash.com/photos/random?count=8&client_id=Q2RreKXKTluL3jgHrsWvM97jT_iu8kpJmxkY-u8h_T0`)
+                    const res = await fetch(`https://api.unsplash.com/photos/random?count=8&client_id=${API_KEY}`)
                     if(!res.ok) {
                         throw new Error()
                     } 
@@ -26,18 +27,30 @@ export const RandomPhotos = () => {
                     setLoading(false)
                 }
             }
-            fetchData()
-
-        }, [])
 
     return(
         <Layout>
             <section className="w-full pt-40 bg-[#ffffff] md:max-w-[820px] lg:max-w-[1350px] m-auto">
-                <h1 className="text-center pb-10">Random Photos</h1>
+
+                <div className="flex justify-center items-center pb-10 gap-5">
+
+                    <h1 className="text-center">Random Photos</h1>
+
+
+                    <button className="bg-[#123026] text-white py-2 px-4 text-sm rounded-sm cursor-pointer hover:bg-[#153f31]" onClick={() => fetchData()}>
+                        Load Photos
+                    </button>
+
+                </div>
+
+                    { loading && <h2 className="text-center">Press the button to load photos...</h2>}
 
                 { loading && 
+                
                     <Spinner />
                  }
+
+                 
 
                 <Wrapper>
                 {randomPhotos?.map((photo) => (

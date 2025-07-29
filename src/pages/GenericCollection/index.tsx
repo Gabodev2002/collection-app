@@ -3,6 +3,7 @@ import { Layout } from "../../components/Layout"
 import { Wrapper } from "../../components/ui/wrapper"
 import { useParams } from "react-router"
 import type { CollectionsData } from "../../utils/data"
+import { API_KEY } from "../../utils/api_key"
 
 
 export const GenericCollection = () => {
@@ -11,12 +12,15 @@ export const GenericCollection = () => {
     const [ images, setImages ] = useState<CollectionsData[]>()
     const [ imgLoaded, setImgLoaded ] = useState(false)
     const id = useParams()
+    console.log(id)
 
     useEffect(() => {
         setLoading(true)
         const fetchData = async () => {
             try{
-                const res = await fetch(`https://api.unsplash.com/collections/xFO4kd86whI/photos?client_id=Q2RreKXKTluL3jgHrsWvM97jT_iu8kpJmxkY-u8h_T0`);
+                // https://api.unsplash.com/photos?page=1>
+                const res = await fetch(`https://api.unsplash.com/collections/${id}/photos?client_id=${API_KEY}`);
+                console.log(res)
                 if(!res.ok) {
                     throw new Error()
                 }
