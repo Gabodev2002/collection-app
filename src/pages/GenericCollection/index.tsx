@@ -12,20 +12,17 @@ export const GenericCollection = () => {
     const [ images, setImages ] = useState<CollectionsData[]>()
     const [ imgLoaded, setImgLoaded ] = useState(false)
     const id = useParams()
-    console.log(id)
 
     useEffect(() => {
         setLoading(true)
         const fetchData = async () => {
             try{
                 const res = await fetch(`https://api.unsplash.com/collections/${id}/photos?client_id=${API_KEY}`);
-                console.log(res)
                 if(!res.ok) {
                     throw new Error()
                 }
                 const data = await res.json()
                 setImages(data)
-                console.log(data)
             } catch {
                 console.error('Error fetching')
             } finally {
