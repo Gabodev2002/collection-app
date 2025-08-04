@@ -18,7 +18,6 @@ export const GenericCollection = () => {
         setLoading(true)
         const fetchData = async () => {
             try{
-                // https://api.unsplash.com/photos?page=1>
                 const res = await fetch(`https://api.unsplash.com/collections/${id}/photos?client_id=${API_KEY}`);
                 console.log(res)
                 if(!res.ok) {
